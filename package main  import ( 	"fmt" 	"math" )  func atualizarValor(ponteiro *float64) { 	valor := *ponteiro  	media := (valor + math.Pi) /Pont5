@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func atualizarValor(ponteiro *float64) {
+	valor := *ponteiro
+
+	media := (valor + math.Pi) / 2
+
+	*ponteiro = media
+}
+
+func main() {
+	var valor float64
+
+	fmt.Print("Digite um número decimal: ")
+	fmt.Scan(&valor)
+
+	atualizarValor(&valor)
+
+	fmt.Printf("O valor atualizado é: %.2f\n", valor)
+}

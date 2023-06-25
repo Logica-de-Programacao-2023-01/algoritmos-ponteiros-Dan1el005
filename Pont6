@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func atualizarValor(ponteiro *float64) {
+	*pi := math.Pi
+	*valor := *ponteiro
+
+	// Calcula a média aritmética
+	media := (*valor + *pi) / 2
+
+	// Atualiza o valor da variável com a média aritmética
+	*ponteiro = media
+}
+
+func main() {
+	var valor float64
+
+	fmt.Print("Digite um número: ")
+	fmt.Scan(&valor)
+
+	atualizarValor(&valor)
+
+	fmt.Printf("O valor atualizado é: %f\n", valor)
+}

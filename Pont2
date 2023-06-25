@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func verificarParImpar(ponteiro *int) {
+	if *ponteiro%2 == 0 {
+		*ponteiro = 0 // Atualiza para 0 se for par
+	} else {
+		*ponteiro = 1 // Atualiza para 1 se for ímpar
+	}
+}
+
+func main() {
+	var valor int
+
+	fmt.Print("Digite um número inteiro: ")
+	fmt.Scan(&valor)
+
+	verificarParImpar(&valor)
+
+	fmt.Printf("O valor atualizado é: %d\n", valor)
+}

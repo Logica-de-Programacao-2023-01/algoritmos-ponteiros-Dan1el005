@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func atualizarValor(ponteiro *int) {
+	valor := *ponteiro
+
+	// Converte o valor para uma string
+	strValor := strconv.Itoa(valor)
+
+	// Obtém os dois últimos dígitos
+	if len(strValor) >= 2 {
+		ultimoDigito, _ := strconv.Atoi(string(strValor[len(strValor)-1]))
+		penultimoDigito, _ := strconv.Atoi(string(strValor[len(strValor)-2]))
+
+		// Atualiza o valor para a soma dos dois últimos dígitos
+		*ponteiro = ultimoDigito + penultimoDigito
+	} else {
+		// Caso a string tenha menos de dois dígitos, mantém o valor original
+		*ponteiro = valor
+	}
+}
+
+func main() {
+	var valor int
+
+	fmt.Print("Digite um número inteiro: ")
+	fmt.Scan(&valor)
+
+	atualizarValor(&valor)
+
+	fmt.Printf("O valor atualizado é: %d\n", valor)
+}

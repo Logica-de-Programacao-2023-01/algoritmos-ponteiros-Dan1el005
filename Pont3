@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func inverterString(ponteiro *string) {
+	runes := []rune(*ponteiro) // Converte a string para um slice de runes
+
+	// Inverte o slice de runes
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+	*ponteiro = string(runes) // Atualiza o valor da string reversa
+}
+
+func main() {
+	texto := "Olá, mundo!"
+	fmt.Println("Texto original:", texto)
+
+	inverterString(&texto)
+
+	fmt.Println("Texto invertido:", texto)
+}

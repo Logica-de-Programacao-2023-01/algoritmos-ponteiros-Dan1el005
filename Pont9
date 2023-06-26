@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func modificarValor(ponteiro *int) {
+	*ponteiro = 42 // Modifica o valor da variável através do ponteiro
+}
+
+func main() {
+	var valor int = 10
+	fmt.Println("Valor inicial:", valor)
+
+	modificarValor(&valor) // Passa o endereço de memória da variável
+
+	fmt.Println("Valor modificado:", valor)
+}
